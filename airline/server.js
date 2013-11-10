@@ -23,8 +23,8 @@ app.configure(function () {
 	  app.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
 	  app.use(express.bodyParser()),	  
 	  app.set('views', __dirname + '/views');
-	  app.set('view engine', 'ejs');
-	  app.engine('ejs', require('ejs-locals'));
+	  //app.set('view engine', 'ejs');
+	  //app.engine('ejs', require('ejs-locals'));
 	  app.use(express.cookieParser());
 	  app.use(express.methodOverride());
 

@@ -577,7 +577,7 @@ window.ShowCountriesCollection = Backbone.Collection.extend({
     	
     comparator: function(item) {
         // make sure this returns a string!
-        return -item.get("countryname") ;
+        return item.get("countryname") ;
       }	  
  });
 
