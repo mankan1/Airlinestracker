@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Airline Boarder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="http://use.edgefonts.net/andika.js"></script>
+    <script src="http://use.edgefonts.net/arvo.js"></script>
+
+	<script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script>
+// UNCOMMENT THIS CODE IF YOU USE THE "serverwithanalytics" SERVER
+//        var socket = io.connect();
+//        socket.on('connect', function () {
+//            socket.send(window.location.href);
+//        });
+//        window.onhashchange = function () {
+//            socket.send(window.location.href);
+//        }
+    </script>
+
+</head>
+
+<body>
+
+<div class="header"></div>
+
+<div class="container">
+
+    <div class="row-fluid">
+        <div id="content" class="span12>"></div>
+    </div>
+
+    <footer class="footer">
+        <p class="pull-right"><a href="#">Back Home</a></p>
+        <p>Airline application for Centralized Passenger CheckIn/Boarding by
+        <a href="http://dispatcher.org" target="_blank">Centrailized Dispatcher Inc</a>.<br/>
+        </p>
+    </footer>
+
+</div>
+<!-- /container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+
+<script src="js/utils.js"></script>
+<script src="js/models/models.js"></script>
+<script src="js/views/paginator.js"></script>
+<script src="js/views/citypaginator.js"></script>
+<script src="js/views/passcitypaginator.js"></script>
+<script src="js/views/header.js"></script>
+<script src="js/views/home.js"></script>
+<script src="js/views/airlineslist.js"></script>
+<script src="js/views/airlinesdetails.js"></script>
+<script src="js/views/about.js"></script>
+<script src="js/views/test.js"></script>
+<script src="js/views/country.js"></script>
+<script src="js/views/passengerRegister.js"></script>
+<script src="js/views/passengerLogin.js"></script>
+<script src="js/views/passengerLoginError.js"></script>
+<script src="js/views/aboutid.js"></script>
+<script src="js/views/passengerregistration.js"></script>
+<script src="js/views/airlinesRegister.js"></script>
+<script src="js/views/airlinesLogin.js"></script>
+<script src="js/views/airlinesLoginError.js"></script>
+<script src="js/views/airlinesLoginNotSameAirlineError.js"></script>
+<script src="js/views/airlinesLoginNotAirlineError.js"></script>
+<script src="js/views/airlinesSignIn.js"></script>
+<script src="js/views/airlinesbycountries.js"></script>
+<script src="js/views/airportsbycity.js"></script>
+<script src="js/views/passcities.js"></script>
+<script src="js/views/passcountries.js"></script>
+<script src="js/views/passcountrypaginator.js"></script>
+<script src="js/views/useridagreement.js"></script>
+<script src="js/views/searchview.js"></script>
+<script src="js/views/passsearchview.js"></script>
+<script src="js/views/useridagreement.js"></script>
+<script src="js/views/searchairlines.js"></script>
+<script src="js/views/userlocation.js"></script>
+<script src="js/views/passqueue.js"></script>
+<script src="js/views/passqueuesearch.js"></script>
+<script src="js/views/showpassengerslist.js"></script>
+<script src="js/views/passqueuepaginator.js"></script>
+<script src="js/views/tempuserlocation.js"></script>
+<script src="js/views/userlocationagain.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
+

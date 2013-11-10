@@ -1,0 +1,84 @@
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script src="lib/jquery.validate.js" type="text/javascript"></script>
+
+<!DOCTYPE html>   
+<html lang="en">
+
+<head>
+<style>
+.slider-bar{
+        display:block; width:80px; background-color:darkred; position:relative;
+    }
+
+    .slider, .slider-bar{
+        height:30px;
+    }
+</style>      
+<meta charset="utf-8">   
+<title>Passenger Queue</title>   
+<meta name="description" content="Twitter Bootstrap Version2.0 form error example from w3resource.com.">   
+<link href="twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">  
+</head>  
+<body>  
+	<form method="POST" action="/passqueuesearch" class="form-horizontal" id="passqueuesearch_form" data-ajax="false">  
+		<fieldset>  
+          <legend>Search for Passengers</legend>  
+          <div class="control-group success">  
+            <label class="control-label" for="airlineslat">Airport Latitude</label>  
+            <div class="controls">  
+              <input type="text" name="airlineslat" id="airlineslat" value="0">  
+              <span class="help-inline">Latitude should be auto populated</span>  
+            </div>  
+          </div>  
+          <div class="control-group success">  
+            <label class="control-label" for="airlineslong">Airport Longitude</label>  
+            <div class="controls">  
+              <input type="text" name="airlineslong" id="airlineslong" value="0">  
+              <span class="help-inline">Longitude should be auto populated</span>  
+            </div>  
+          </div>  
+
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup">  
+						<label class="control-label" for="miles">Range (in miles):</label>
+						<input type="range" name="miles" id="miles" min="0" max="50" value="50">
+				</fieldset>
+			</div>
+			
+         </fieldset>
+         <input type="hidden" name="departureAirportFsCode" value=<%= departureAirportFsCode %>>
+         <input type="hidden" name="arrivalAirportFsCode" value=<%= arrivalAirportFsCode %>>
+         <input type="hidden" name="departureTime" value=<%= departureTime %>>
+         <input type="hidden" name="arrivalTime" value=<%= arrivalTime %>>
+         <input type="hidden" name="arrivalTerminal" value=<%= arrivalTerminal %>>
+         <input type="hidden" name="carrierFsCode" value=<%= carrierFsCode %>>
+         <input type="hidden" name="flightNumber" value=<%= flightNumber %>>
+         <input type="hidden" name="currentDate" value=<%= currentDate %>>
+         
+    	<div class="controls">  
+			<p><button type="submit" class="btn btn-success">Track Passengers</button>
+      	</div>
+	</form>  
+</body>  
+</html>  
+
+<script>
+
+function getLocation(location){
+	console.log("I know where you are", location.coords.latitude, location.coords.longitude);
+	
+	var long = $(airlineslat), lat = $(airlineslong)
+
+	long.val(location.coords.longitude);
+	lat.val(location.coords.latitude);
+
+}
+</script>
+
+<script>
+(function($){
+ 	console.log( 'Pass Search View');
+	navigator.geolocation.getCurrentPosition(getLocation); // Asks the user for their GPS
+
+})(jQuery);
+</script>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<script type="text/javascript">
+    function xss_ajax(url) {
+        var script_id = null;
+        var script = document.createElement('script');
+        script.setAttribute('type', 'text/javascript');
+        script.setAttribute('src', url);
+        script.setAttribute('id', 'script_id');
+ 
+        script_id = document.getElementById('script_id');
+        if(script_id){
+            document.getElementsByTagName('head')[0].removeChild(script_id);
+        }
+ 
+        // Insert <script> into DOM
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+ 
+    function callback(data) {
+        var txt = '';
+        for(var key in data) {
+            txt += key + " = " + data[key];
+            txt += "\n";
+        }
+        alert(txt);
+    }
+ 
+    var url = "http://alvin.boldlygoingnowhere.org/examples/xss/callback_json.php";
+ 
+</script>
+<title>Simple Cross Domain Ajax</title>
+</head>
+<body>
+<h1>Simple Cross Domain Ajax</h1>
+<button onclick="xss_ajax(url);">Get Data</button>
+</body>
+</html>
+<script>
+  $(function () {
+  console.log("SearchAirlinesView I am here");
+  })
+</script>	

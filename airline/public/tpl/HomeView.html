@@ -1,0 +1,31 @@
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script src="lib/jquery.validate.js" type="text/javascript"></script>
+
+<div class="home-hero">
+            <h1>Boarding</h1>
+
+			<a class="btn btn-large" href="#country"><img src="img/airline.jpg" class="pull-left" style="margin-right:6px;"/> It's Me <br/>Airlines</a>
+			
+			<a class="btn btn-primary btn-large" data-toggle="modal" href="#passengerlogin"> 
+			<img src="img/passenger.jpg" class="pull-left" style="margin-right:6px"/> Passenger Arrival <br/>Location Tracking</a>
+
+			<div class="modal hide" id="passengerlogin">
+					  <div class="modal-header">
+					    <button type="button" class="close" data-dismiss="modal">x</button>
+					    <span class="label label-info">Passenger Login-Registration</span>
+					  </div>
+				  <div class="modal-body">		
+				  		<a href="#passengerLogin" class="btn btn-primary">SignIn</a>		  
+				  	    <a href="/auth/google" class="btn btn-primary passloginGoogle">Sign In with Gmail</button>
+				  	    <a href="/auth/facebook" class="btn btn-primary passloginGoogle">Sign In with Facebook</button>
+						<a href="/auth/twitter" class="btn btn-primary passloginGoogle">Sign In with Twitter</button>
+						<a href="#passengerRegister" class="btn btn-primary">Register with Airlines</a>										
+				  </div>
+			</div>				
+</div>
+<script>
+  $(function () {
+  console.log("Home I am here");
+		$('#action-logout').hide();
+  })
+</script>

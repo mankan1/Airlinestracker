@@ -1,0 +1,21 @@
+
+<div class="home-dial">
+
+	<a class="btn btn-primary" data-toggle="modal" href="#passengerLoginReg" class="pull-left" style="margin-right:6px">SignIn/Register</a>
+		<div class="modal hide" id="passengerLoginReg">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal">x</button>
+			    <span class="label label-info">Airlines Login-Registration</span>
+			  </div>
+		  <div class="modal-body">		
+		  		<a href="#airlinesLogin/<%= _id %>" class="btn btn-primary">      SignIn      </a>
+		  	    <a href="/auth/google" class="btn btn-primary passloginGoogle">Sign In with Gmail</a>
+				<a href="#airlinesRegister/<%= _id %>" class="btn btn-primary">Register with Airlines</a>
+		  </div>
+	</div>						
+</div>
+<script>
+  $(function () {
+  console.log("AirlinesSignIn I am here");
+  })
+</script>	

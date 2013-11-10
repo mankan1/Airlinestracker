@@ -1,0 +1,34 @@
+<div class="navbar navbar-inverse navbar-fixed-top" style="z-index: 10;">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Airline-Passenger Tracker</a>
+
+            <div class="nav-collapse collapse">
+
+                <ul class="nav">
+                    <li class="add-menu"><a href="#airlines">Browse Airlines</a></li>
+                    <li class="add-menu"><a href="#airlines/add"><i class="icon-edit icon-white"></i> Add Airlines</a></li>
+                </ul>
+
+                <ul class="nav pull-right">
+                    <li class="about-menu"><a href="#about">About</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                <a class="btn btn-primary logout" style="display:none" data-role="button" id="action-logout" href="#" data-ajax="false">Logout</a>
+                </ul>                
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+<script>
+  $(function () {
+  console.log("Header I am here");
+		$('#action-logout').hide();
+  })
+</script>

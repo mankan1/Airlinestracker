@@ -1,0 +1,35 @@
+<div class="home-dial">
+
+	<div class="row-fluid">
+				<div class="span4">
+                    <div class="well" style="width: 180px;text-align: center;width:50%;margin: 0px auto;">
+                        <p><img id="picture" width="180" src="<%= picture === null ? 'pics/generic.jpg' : 'pics/' + picture %>"/></p>
+                        <p style="color:#999;">To change the picture, drag a new picture from your file system onto the box above.</p>
+                    </div>
+                </div>
+	
+	  		<a data-toggle="modal" href="#passengerLoginReg" class="btn btn-primary">SignIn/Register</a>
+	
+				<div class="modal hide" id="passengerLoginReg">
+						  <div class="modal-header">
+						    <button type="button" class="close" data-dismiss="modal">x</button>
+						    <span class="label label-info">Airlines Login-Registration</span>
+						  </div>
+					  <div class="modal-body">		
+					  		<a href="#airlinesLogin/<%= _id %>/<%= city %>" class="btn btn-primary">      SignIn      </a>
+					  	    <a href="/auth/google" class="btn btn-primary passloginGoogle">Sign In with Gmail</a>
+							<a href="#airlinesRegister/<%= _id %>/<%= city %>" class="btn btn-primary">Register with Airlines</a>
+					  </div>
+				</div>
+	
+	        <a href="#airlinesdetails/<%= _id %>" class="btn profile">Airlines Profile</a>
+								
+	</div>
+
+					  
+</div>
+<script>
+  $(function () {
+  console.log("AirportsByCity I am here");
+  })
+</script>	        

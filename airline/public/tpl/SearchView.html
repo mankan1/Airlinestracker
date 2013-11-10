@@ -1,0 +1,150 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>        	
+<script type="text/javascript">
+	
+    function xss_ajax(url) {
+        var script_id = null;
+        var script = document.createElement('script');
+        script.setAttribute('type', 'text/javascript');
+        script.setAttribute('src', url);
+        script.setAttribute('id', 'script_id');
+ 
+        script_id = document.getElementById('script_id');
+        if(script_id){
+            document.getElementsByTagName('head')[0].removeChild(script_id);
+        }
+ 
+        // Insert <script> into DOM
+        console.log(document.getElementsByTagName('head')[0].appendChild(script));
+    }
+ 
+    function pd_callback(data) {
+	console.log('pd_callback');
+        var txt = '';
+        for(var key in data) {
+            txt += key + " = " + data[key];
+            txt += "\n";
+        }
+		console.log('txt', txt);
+    }
+    var currentDate = new Date();
+    var lat = 0;
+    var long = 0;
+     
+    function callback(data) {
+	 	//$.each(JSON_array, function(index, data) {
+		$.each(data.scheduledFlights, function ()
+		{  	
+			var splitdepartureTime = this.departureTime.split("T");
+			var splitarrivalTime = this.arrivalTime.split("T");
+			
+			var tblRow = "<tr>" + "<td>" + "<a href='"+ "passqueue" + "/" + this.departureAirportFsCode 
+			+ "/" + this.arrivalAirportFsCode + "/" + this.departureTime
+			+ "/" + this.arrivalTime + "/" + this.arrivalTerminal
+			+ "/" + this.carrierFsCode + "/" + this.flightNumber + "/" + currentDate + "/" + lat + "/" + long +
+			"'>"+ "PickFlight" +"</a>" + 
+			"</td>" + "<td>" + this.carrierFsCode + this.flightNumber + "</td>" + "<td>" +
+			this.departureAirportFsCode + "</td>" + "<td>" + this.arrivalAirportFsCode + "</td>" + "<td>" + 
+			splitdepartureTime[0] + "</td>" + "<td> " +  splitdepartureTime[1] +  
+			"</td>" + "<td> " + splitarrivalTime[0] + "</td>" + "<td> " + splitarrivalTime[1] +
+			"</td>" +  "<td>" + this.arrivalTerminal + "</td>" + "</tr>"
+	       $(tblRow).appendTo("#entrydata tbody");
+							
+        });
+
+		//$("tr").append($('<td/>').html("<a href='"+ "PickFlight" +"'>"+ "PickFlight" +"</a>"));
+			
+		$("tr").click(function()
+		{
+	      /* personally I would throw a url attribute (<tr url="http://www.hunterconcepts.com">) on the tr and pull it off on click */
+	      window.location = $(this).attr("url");
+	      //window.location = ('#'+entrydata+' tr:last').attr('id')
+	       
+	   	});	        
+    }
+
+
+    var createdTime = currentDate.getTime();
+    var createdHours = currentDate.getHours();
+    var createdMins = currentDate.getMinutes();
+    var createdSecs = currentDate.getSeconds();
+    var createdMonth = currentDate.getMonth() + 1;
+    var createdDate = currentDate.getDate();
+    var createdYear = currentDate.getFullYear();
+    
+    console.log('currentDate : ', currentDate); 
+    console.log('createdTime : ', createdTime);
+    console.log('createdHours : ', createdHours);
+    console.log('createdMins : ', createdMins);
+    console.log('createdSecs : ', createdSecs);
+    console.log('createdMonth : ', createdMonth);
+    console.log('createdYear : ', createdYear); 
+        	
+    var radar_url = "http://db8.flightradar24.com/zones/na_sw_all.js?callback=pd_callback&_=1370196802038";
+	var carr_flgnum_url = "https://api.flightstats.com/flex/schedules/rest/v1/jsonp/flight/AA/100/departing/2013/10/18?appId=78456c8e&appKey=4aed62f1b21adb714e4f08d7a5581857"
+	//var airport_date_hr_url = "https://api.flightstats.com/flex/schedules/rest/v1/jsonp/from/<%= city %>/departing/2013/10/18/12?appId=78456c8e&appKey=4aed62f1b21adb714e4f08d7a5581857"
+	var airport_date_hr_url = "https://api.flightstats.com/flex/schedules/rest/v1/jsonp/from/<%= city %>/departing/" + createdYear + "/" + createdMonth + "/" + createdDate + "/" + createdHours + "?appId=78456c8e&appKey=4aed62f1b21adb714e4f08d7a5581857"
+
+	function getLocation(location){
+		console.log("I know where you are", location.coords.latitude, location.coords.longitude);
+
+		long = location.coords.longitude;
+		lat = location.coords.latitude;
+	}
+	
+</script>
+<script>
+(function($){
+ 	//console.log( 'myname' ,  <%= _id %>);
+	navigator.geolocation.getCurrentPosition(getLocation); // Asks the user for their GPS
+})(jQuery);
+</script>
+
+<title>Available Airlines as per City</title>
+</head>
+<body>
+<h2>Airlines in <%= city %></h2>
+<div class="wrapper">
+	<div class="profile">
+		<table id= "entrydata" border="1">
+			<thead>
+				<th>Select Airline</th>			
+				<th>Airlines Code</th>
+				<th>Arrival Airport Code</th>
+				<th>Departure Date</th>
+				<th>Departure Time</th>
+				<th>Arrival Date</th>
+				<th>Arrival Time</th>
+				<th>Arrival Terminal</th>
+				<th>Airline Name</th>
+			</thead>
+			<tbody>
+
+		   </tbody>
+		</table>
+	</div>
+</div>
+
+</br>
+<button id="FltAir" onclick="xss_ajax(airport_date_hr_url);">Search Flights from the Airport</button>
+
+</body>
+</html>
+<script>
+  $(function () {
+  console.log("SearchView I am here");
+  
+(function getFare() {
+	setTimeout(function () {
+	
+	},2000);
+ 
+ 	console.log("looping I am here");
+ 
+  })		
+		
+})
+
+</script>	
