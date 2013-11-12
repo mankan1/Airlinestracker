@@ -1,7 +1,7 @@
 var express = require('express'),
     path = require('path'),
     http = require('http'),
-    io = require('socket.io'),
+    //io = require('socket.io'),
     airlines = require('./routes/airlines');
 
 var app = express();
@@ -14,7 +14,7 @@ app.configure(function () {
 });
 
 var server = http.createServer(app);
-io = io.listen(server);
+/*io = io.listen(server);
 
 
 io.configure(function () {
@@ -26,6 +26,7 @@ io.configure(function () {
         }
     });
 });
+*/
 
 server.listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
@@ -38,7 +39,7 @@ app.post('/airlines', airlines.addAirline);
 app.put('/airlines/:id', airlines.updateAirline);
 app.delete('/airlines/:id', airlines.deleteAirline);
 
-io.sockets.on('connection', function (socket) {
+/*io.sockets.on('connection', function (socket) {
 
     socket.on('message', function (message) {
         console.log("Got message: " + message);
@@ -52,4 +53,4 @@ io.sockets.on('connection', function (socket) {
         io.sockets.emit('pageview', { 'connections': Object.keys(io.connected).length});
     });
 
-});
+});*/
