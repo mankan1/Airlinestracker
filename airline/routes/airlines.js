@@ -4,7 +4,7 @@ var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
+var server = new Server('192.168.0.104', 27017, {auto_reconnect: true});
 db = new Db('airlinesdb', server, {safe: true});
 
 db.open(function(err, db) {
@@ -4313,9 +4313,9 @@ var airlineslocation = [
     }
 */
 	//db.airlines.remove();
-    /*db.collection('airlines', function(err, collection) {
+    db.collection('airlines', function(err, collection) {
         collection.insert(airlines, {safe:true}, function(err, result) {});
-    });*/
+    });
 
     db.collection('airlinescities', function(err, collection) {
         collection.insert(airlinescities, {safe:true}, function(err, result) {});

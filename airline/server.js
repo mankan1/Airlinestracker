@@ -47,7 +47,7 @@ app.configure(function () {
 	  app.use(express.static(path.join(__dirname, 'public')));
 });
 
-  mongoose.connect('localhost', 'test');
+  mongoose.connect('192.168.0.104', 'test');
   var db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', function callback() {
