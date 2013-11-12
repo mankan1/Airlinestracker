@@ -1,7 +1,8 @@
 {
     "name": "Airline-Boarding",
+    "subdomain": "airlinestracker",
     "description": "Airline Boarding Application",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "dependencies": {
         "passport-local": ">= 0.0.0",
